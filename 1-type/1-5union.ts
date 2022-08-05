@@ -36,11 +36,11 @@
 
   type LoginState = Success | Fail;
 
-  function printLoginState(state: LoginState) {
-    if ("reason" in state) {
-      console.log(state.reason.body);
-    } else {
-      console.log(state.response.body);
-    }
-  }
+  // function printLoginState(state: LoginState) {
+  //   if ("reason" in state) {
+  //     console.log(state.reason.body);
+  //   } else {
+  //     console.log(state.response.body);
+  //   }
+  // }
 }
