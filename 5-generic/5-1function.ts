@@ -19,5 +19,7 @@
   }
 
   const results = checkNotNull("123");
+  const bool = checkNotNull(true);
+
   console.log(results);
 }
