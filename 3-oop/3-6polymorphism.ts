@@ -64,6 +64,10 @@
     }
   }
 
+  const machines = [
+    new CoffeeMachine(16)
+  ]
+
   const make = CoffeeMachine.makeMachine(32);
   console.log(make);
   make.fillCoffeeBeans(20);

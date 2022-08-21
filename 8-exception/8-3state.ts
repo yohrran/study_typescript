@@ -8,16 +8,12 @@
     result: "success;";
   };
   type ResultState = SuccessState | NetworkErrorState;
-  class NetworkClient {
-    tryConnect(): ResultState {}
-  }
+  class NetworkClient {}
 
   class UserService {
     constructor(private client: NetworkClient) {}
 
-    login() {
-      this.client.tryConnect();
-    }
+    login() {}
   }
 
   const client = new NetworkClient();
@@ -30,7 +26,7 @@
         this.userService.login();
         //typescript 에서 catch(error)는 any타입이다.
       } catch (error) {
-        console.log("error catched!!");
+        console.log("error catch!!");
       }
     }
   }
