@@ -15,8 +15,8 @@
     };
   }
 
-  //원하는 타입만 빼내어서 사용하는 것
-  type VideoMetaData = Omit<Video, "url" | "data">;
+  //타입을 제외한 것을 사용하는 것, pick과 반대되는 개념
+  type VideoMetaData = Omit<Video, "url" | "data" | "h">;
 
   function getVideoMetadata(id: string): VideoMetaData {
     return {

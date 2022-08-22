@@ -6,7 +6,7 @@
     data: string;
   };
 
-  function getVideo(id: string): Video {
+  function getVideos(id: string): Video {
     return {
       id,
       title: "videl",
@@ -18,7 +18,7 @@
   //원하는 타입만 빼내어서 사용하는 것
   type VideoMetaData = Pick<Video, "id" | "title">;
 
-  function getVideoMetadata(id: string): VideoMetaData {
+  function getVideoMetadatas(id: string): VideoMetaData {
     return {
       id: id,
       title: "title",
