@@ -1,7 +1,8 @@
-import React from "react";
-
+import React, { useState } from "react";
+import Header from "./components/Header";
 function App() {
-  return <div>hello</div>;
+  const [date, setDate] = useState([]);
+  return <Header />;
 }
 
 export default App;
