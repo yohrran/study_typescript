@@ -23,7 +23,10 @@ function Header() {
       case "Image":
         return (
           <div>
-            <h1>image</h1>
+            <label>Title</label>
+            <input type="text" name="text" />
+            <label>Url</label>
+            <input type="text" name="text" />
           </div>
         );
       case "Video":
