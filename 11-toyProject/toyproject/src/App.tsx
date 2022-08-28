@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Header from "./components/Header";
+import Section from "./components/Section";
 
 export interface IDateProps {
   text: string;
@@ -12,6 +13,7 @@ function App() {
   return (
     <>
       <Header date={date} setDate={setDate} />
+      <Section date={date} setDate={setDate} />
     </>
   );
 }

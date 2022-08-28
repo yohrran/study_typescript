@@ -4,7 +4,7 @@ import Modal from "./Modal";
 import { IDateProps } from "../App";
 export type CustomMouseEvent<T = HTMLElement> = MouseEvent<T>;
 
-interface IHeaderProps {
+export interface IHeaderProps {
   date: IDateProps[];
   setDate: React.Dispatch<React.SetStateAction<IDateProps[]>>;
 }
