@@ -9,20 +9,18 @@ type ShowDate = {
   body: string;
 };
 function Section({ date, setDate }: IHeaderProps) {
-  console.log("section:::::::::::::::::::::::", date);
-
   const showDate = ({ text, title, body }: ShowDate) => {
     switch (text) {
       case "Image":
         return (
-          <div>
+          <BodySection>
             <img src={body} alt="title" />
             <h2>{title}</h2>
-          </div>
+          </BodySection>
         );
       case "Video":
         return (
-          <div>
+          <BodySection>
             <YouTube
               videoId={body}
               opts={{
@@ -34,47 +32,76 @@ function Section({ date, setDate }: IHeaderProps) {
               }}
             />
             <h2>{title}</h2>
-          </div>
+          </BodySection>
         );
       case "Note":
         return (
-          <div>
+          <BodySection>
+            <p>제목</p>
             <h1>{title}</h1>
+            <p>본문</p>
             <h2>{body}</h2>
-          </div>
+          </BodySection>
         );
       default:
         return (
-          <div>
+          <BodySection>
+            <p>제목</p>
             <h1>{title}</h1>
-            <h3>-{body}</h3>
-          </div>
+            <p>ToDo</p>
+            <h2>{body}</h2>
+          </BodySection>
         );
     }
   };
 
-  const deleteButton = (e: CustomMouseEvent) => {
-    setDate(date.filter((el, i) => i.toString() !== e.currentTarget.id));
+  const handleDeleteButton = (e: CustomMouseEvent) => {
+    setDate(date.filter((_, i) => i.toString() !== e.currentTarget.id));
   };
 
   return (
-    <>
+    <BoxContainer>
       {date.map((el, i) => (
-        <div key={i}>
+        <BoxSection key={i}>
           <div>{showDate(el)}</div>
-          <CloseButton type="button" id={i.toString()} onClick={deleteButton}>
+          <DeleteButton
+            type="button"
+            id={i.toString()}
+            onClick={handleDeleteButton}
+          >
             X
-          </CloseButton>
-        </div>
+          </DeleteButton>
+        </BoxSection>
       ))}
-    </>
+    </BoxContainer>
   );
 }
 
 export default Section;
 
-const CloseButton = styled.button`
+const BoxContainer = styled.div`
+  margin-top: 20px;
+`;
+
+const BodySection = styled.div`
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 400px;
+  top: 50%;
+  left: 50%;
+  background-color: #ffffe5;
+  padding: 16px;
+  margin: 10px;
+`;
+
+const BoxSection = styled.div`
+  display: flex;
+`;
+
+const DeleteButton = styled.button`
   border: none;
   background: none;
   cursor: pointer;
+  font-size: 30px;
 `;

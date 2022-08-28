@@ -27,39 +27,39 @@ function Header({ date, setDate }: IHeaderProps) {
     switch (text) {
       case "Image":
         return (
-          <div>
+          <>
             <label>Title</label>
             <input type="text" name="text" onChange={setInputTitle} />
             <label>Url</label>
             <input type="text" name="text" onChange={setInputBody} />
-          </div>
+          </>
         );
       case "Video":
         return (
-          <div>
+          <>
             <label>Video</label>
             <input type="text" name="text" onChange={setInputTitle} />
             <label>Url</label>
             <input type="text" name="text" onChange={setInputBody} />
-          </div>
+          </>
         );
       case "Note":
         return (
-          <div>
+          <>
             <label>Note</label>
             <input type="text" name="text" onChange={setInputTitle} />
             <label>Body</label>
             <input type="text" name="text" onChange={setInputBody} />
-          </div>
+          </>
         );
       default:
         return (
-          <div>
+          <>
             <label>Task</label>
             <input type="text" name="text" onChange={setInputTitle} />
             <label>Body</label>
             <input type="text" name="text" onChange={setInputBody} />
-          </div>
+          </>
         );
     }
   };
@@ -91,10 +91,10 @@ function Header({ date, setDate }: IHeaderProps) {
       <HeadBox>
         <Head>MOTION</Head>
         <ButtonContainer>
-          <button onClick={handleOpenModal}>Image</button>
-          <button onClick={handleOpenModal}>Video</button>
-          <button onClick={handleOpenModal}>Note</button>
-          <button onClick={handleOpenModal}>Task</button>
+          <ButtonTag onClick={handleOpenModal}>Image</ButtonTag>
+          <ButtonTag onClick={handleOpenModal}>Video</ButtonTag>
+          <ButtonTag onClick={handleOpenModal}>Note</ButtonTag>
+          <ButtonTag onClick={handleOpenModal}>Task</ButtonTag>
           <Modal
             visible={isOpen}
             onClose={handleCloseModal}
@@ -112,7 +112,7 @@ export default Header;
 const HeadContainer = styled.header`
   display: flex;
   justify-content: center;
-  background-color: black;
+  background-color: #cbba83;
 `;
 const HeadBox = styled.div`
   display: flex;
@@ -124,4 +124,10 @@ const Head = styled.h1`
 `;
 const ButtonContainer = styled.div`
   display: flex;
+`;
+const ButtonTag = styled.button`
+  margin: 10px;
+  font-size: 20px;
+  background-color: #ffecb3;
+  border: none;
 `;

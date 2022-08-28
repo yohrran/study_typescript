@@ -22,11 +22,13 @@ function Modal({ children, visible, onClose, onAdd }: ModalBaseProps) {
           <CloseButton type="button" onClick={onClose}>
             X
           </CloseButton>
+        </Title>
+        <Content>{children}</Content>
+        <Title>
           <AddButton type="button" onClick={onAdd}>
             add
           </AddButton>
         </Title>
-        <Content>{children}</Content>
       </ModalSection>
     </>
   );
@@ -52,7 +54,6 @@ const fadeOut = keyframes`
   }
 `;
 
-// components
 const modalSettings = (visible: boolean) => css`
   visibility: ${visible ? "visible" : "hidden"};
   z-index: 15;
@@ -71,7 +72,7 @@ const Background = styled.div<{ visible: boolean }>`
 `;
 
 const ModalSection = styled.div<{ visible: boolean }>`
-  width: 400px;
+  width: 500px;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -88,6 +89,8 @@ const Title = styled.div`
 `;
 
 const Content = styled.div`
+  display: flex;
+  flex-direction: column;
   padding: 16px 0;
 `;
 
