@@ -1,13 +1,15 @@
 import { ReactElement } from "react";
 import styled, { css, keyframes } from "styled-components";
+import { CustomMouseEvent } from "./Header";
 
 export type ModalBaseProps = {
   children?: ReactElement;
   visible: boolean;
   onClose: () => void;
+  onAdd: (e: CustomMouseEvent) => void;
 };
 
-function Modal({ children, visible, onClose }: ModalBaseProps) {
+function Modal({ children, visible, onClose, onAdd }: ModalBaseProps) {
   if (!visible) {
     return null;
   }
@@ -20,6 +22,9 @@ function Modal({ children, visible, onClose }: ModalBaseProps) {
           <CloseButton type="button" onClick={onClose}>
             X
           </CloseButton>
+          <AddButton type="button" onClick={onAdd}>
+            add
+          </AddButton>
         </Title>
         <Content>{children}</Content>
       </ModalSection>
@@ -89,5 +94,10 @@ const Content = styled.div`
 const CloseButton = styled.button`
   border: none;
   background: none;
+  cursor: pointer;
+`;
+
+const AddButton = styled.button`
+  border: none;
   cursor: pointer;
 `;
